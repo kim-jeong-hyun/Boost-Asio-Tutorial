@@ -15,6 +15,7 @@ string make_daytime_string() {
 
 int main() {
 	try {
+		cout<<"[BOOST ASIO SERVER Ver0.2]\n"
 		//80번 포트 : HTTP프로토콜 / 13번 포트 : DAY_TIME 프로토콜
 		//기본적으로 Boost Asio 프로그램 -> 하나의 IO Service 객체 가짐
 		boost::asio::io_service i_s;
