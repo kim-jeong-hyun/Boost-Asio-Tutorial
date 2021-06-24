@@ -8,15 +8,15 @@ using namespace std;
 int main() {
 	try {
 		//하나의 io_service객체 가짐
-		boost::asio::io_service i_s;
+		boost::asio::io_service i_service;
 		//도메인 이름을 tcp종단점으로 바꾸기 위해 Resolver사용
-		tcp::resolver resolver(i_s);
+		tcp::resolver resolver(i_service);
 		//서버로는 로컬서버, 서비스는 Daytime 프로토콜 적기
 		tcp::resolver::query query("localhost", "daytime");
 		//dns를 거쳐 ip주소 및 포트번호 얻기
 		tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
 		//소켓 객체를 초기화하여 서버에 연결
-		tcp::socket socket(i_s);
+		tcp::socket socket(i_service);
 		boost::asio::connect(socket, endpoint_iterator);
 		while (1) {
 			//버퍼 및 오류 처리 변수 선언
